@@ -3,235 +3,712 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
-
+<title>Wedding Invitation — Nushera &amp; Tauhidul</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-body {
-    margin:0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f4ff, #ffeef5);
-    text-align:center;
-    color:#5a4a5f;
-    overflow-x:hidden;
-}
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(160deg, #fdf8f0 0%, #f9f2fa 40%, #fdf5f0 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #5c4a5a;
+  }
 
-/* 🌸 FLOATING FLOWERS */
-.flower {
-    position:fixed;
-    top:-50px;
-    font-size:20px;
-    animation: fall linear infinite;
-    opacity:0.8;
-    z-index:0;
-}
+  /* ===== FLOATING PETALS ===== */
+  .petal {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 14px;
+    opacity: 0;
+    animation: petalFall linear infinite;
+  }
+  @keyframes petalFall {
+    0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+    8%   { opacity: 0.45; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(105vh) rotate(480deg) translateX(30px); opacity: 0; }
+  }
 
-@keyframes fall {
-    0% { transform: translateY(-10vh) rotate(0deg); opacity:0; }
-    10% { opacity:1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
-}
+  /* ===== SPARKLES ===== */
+  .spark {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(212, 175, 120, 0.7);
+    animation: sparkPulse ease-in-out infinite;
+  }
+  @keyframes sparkPulse {
+    0%, 100% { transform: scale(0.4); opacity: 0.15; }
+    50%       { transform: scale(1.3); opacity: 0.6; }
+  }
 
-/* ✨ SPARKLES */
-.sparkle {
-    position:fixed;
-    width:6px;
-    height:6px;
-    background:white;
-    border-radius:50%;
-    box-shadow:0 0 10px #fff, 0 0 20px #ffb6e6;
-    animation: twinkle 2s infinite ease-in-out;
-    z-index:0;
-}
+  /* ===== ENVELOPE SCREEN ===== */
+  #envelope-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: linear-gradient(160deg, #fdf8f0 0%, #f9f2fa 40%, #fdf5f0 100%);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  #envelope-screen.hide {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
+  }
 
-@keyframes twinkle {
-    0%,100% { transform: scale(0.5); opacity:0.3; }
-    50% { transform: scale(1.2); opacity:1; }
-}
+  .env-hint {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.35em;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #b8a4b0;
+    margin-bottom: 40px;
+    animation: hintPulse 2.5s ease-in-out infinite;
+  }
+  @keyframes hintPulse {
+    0%, 100% { opacity: 0.5; }
+    50%       { opacity: 1; }
+  }
 
-/* Envelope */
-.envelope {
-    width:280px;
-    height:180px;
-    background: linear-gradient(135deg, #f3e8ff, #ffd6e8);
-    margin:100px auto;
-    position:relative;
-    cursor:pointer;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    z-index:2;
-}
+  /* ===== ENVELOPE COMPONENT ===== */
+  .envelope-wrap {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    cursor: pointer;
+    filter: drop-shadow(0 18px 40px rgba(160, 120, 140, 0.18));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  .envelope-wrap:hover {
+    transform: translateY(-4px) scale(1.015);
+    filter: drop-shadow(0 24px 50px rgba(160, 120, 140, 0.26));
+  }
 
-.envelope:before {
-    content:'';
-    position:absolute;
-    top:-90px;
-    left:0;
-    width:0;
-    height:0;
-    border-left:140px solid transparent;
-    border-right:140px solid transparent;
-    border-bottom:90px solid #e6ccff;
-    transition:0.8s ease;
-    transform-origin:top;
-}
+  .env-body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #fdf6ee, #f7edfa, #fdf6ee);
+    border-radius: 4px;
+    border: 1px solid rgba(212, 185, 195, 0.5);
+    overflow: hidden;
+  }
+  .env-liner {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(212, 175, 120, 0.03) 0px,
+      rgba(212, 175, 120, 0.03) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  }
 
-.envelope:after {
-    content:'Tap to Open 💌';
-    position:absolute;
-    width:100%;
-    top:65px;
-    left:0;
-    font-size:16px;
-    color:#7a5c8a;
-}
+  /* Envelope flap */
+  .env-flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 100px solid rgba(241, 228, 245, 0.95);
+    transform-origin: top center;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+    filter: drop-shadow(0 4px 8px rgba(160, 120, 140, 0.12));
+  }
+  .env-flap.open { transform: rotateX(-180deg); }
 
-.open:before {
-    transform:rotateX(180deg);
-}
+  /* Envelope side triangles */
+  .env-bottom {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 90px solid rgba(235, 220, 238, 0.6);
+    z-index: 1;
+  }
+  .env-left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 0;
+    border-top: 220px solid transparent;
+    border-left: 140px solid rgba(240, 228, 242, 0.55);
+    z-index: 1;
+  }
+  .env-right {
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-top: 220px solid transparent;
+    border-right: 140px solid rgba(237, 224, 240, 0.55);
+    z-index: 1;
+  }
 
-/* Card */
-.card {
-    display:none;
-    margin:20px auto;
-    padding:25px;
-    width:90%;
-    max-width:400px;
-    background:rgba(255,255,255,0.75);
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    z-index:2;
-    position:relative;
-}
+  /* ===== WAX SEAL ===== */
+  .wax-seal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    z-index: 4;
+    transition: transform 0.6s ease, opacity 0.5s ease;
+  }
+  .wax-seal.hide {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  .seal-circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%, #c8a96a, #a07840 40%, #7a5c2e 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px rgba(255, 220, 160, 0.4),
+      0 4px 12px rgba(120, 80, 30, 0.3);
+  }
+  .seal-inner {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 220, 140, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .seal-monogram {
+    font-family: 'Great Vibes', cursive;
+    color: rgba(255, 245, 210, 0.95);
+    font-size: 18px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .seal-year {
+    font-family: 'Jost', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: rgba(255, 240, 200, 0.7);
+    margin-top: 1px;
+  }
 
-h1 {
-    font-family:'Great Vibes', cursive;
-    font-size:38px;
-    color:#b57edc;
-}
+  /* ===== MAIN INVITATION ===== */
+  #invitation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.4s ease 0.3s, transform 1.4s ease 0.3s;
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+  }
+  #invitation.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
 
-.names {
-    font-size:24px;
-    margin:15px 0;
-    color:#6a4c6d;
-}
+  /* ===== HERO SECTION ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 30px;
+    text-align: center;
+    position: relative;
+  }
 
-.details {
-    font-size:16px;
-    line-height:1.6;
-}
+  .ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: rgba(180, 140, 100, 0.6);
+    letter-spacing: 0.5em;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+  .ornament-bottom { margin-top: 20px; margin-bottom: 0; }
 
-#countdown {
-    margin-top:20px;
-    font-size:18px;
-    color:#b57edc;
-}
+  .invite-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.45em;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #c8a8be;
+    margin-bottom: 32px;
+  }
 
-.fade-in {
-    animation:fadeIn 1.8s ease forwards;
-}
+  .couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(52px, 10vw, 80px);
+    color: #7a5870;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .ampersand {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(28px, 5vw, 40px);
+    color: rgba(180, 140, 100, 0.7);
+    margin: 2px 0;
+  }
 
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
-}
+  .hero-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(16px, 3vw, 20px);
+    color: #9a7a90;
+    max-width: 380px;
+    margin: 28px auto 0;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+  }
 
-/* Mobile */
-@media (max-width:600px) {
-    .envelope {
-        width:240px;
-        height:160px;
-        margin-top:80px;
+  /* Scroll cue */
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: scrollCueFade 1s ease 2.5s forwards;
+  }
+  @keyframes scrollCueFade { to { opacity: 1; } }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(180, 140, 100, 0.5), transparent);
+    animation: scrollLineMove 2s ease-in-out infinite;
+  }
+  @keyframes scrollLineMove {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.4; }
+    50%       { transform: scaleY(1); opacity: 1; }
+  }
+  .scroll-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(180, 140, 100, 0.6);
+  }
+
+  /* ===== GOLD DIVIDER ===== */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  .divider-line {
+    flex: 1;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, rgba(180, 140, 100, 0.5));
+  }
+  .divider-line.right {
+    background: linear-gradient(90deg, rgba(180, 140, 100, 0.5), transparent);
+  }
+  .divider-diamond {
+    width: 6px; height: 6px;
+    background: rgba(180, 140, 100, 0.6);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ===== DETAILS SECTION ===== */
+  .details-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 30px;
+    text-align: center;
+    position: relative;
+  }
+
+  .section-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.5em;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #c8a8be;
+    margin-bottom: 48px;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 340px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .details-grid.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .detail-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.45em;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: rgba(180, 140, 100, 0.8);
+    margin-bottom: 12px;
+  }
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(22px, 5vw, 28px);
+    color: #6a4a66;
+    line-height: 1.3;
+  }
+  .detail-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #b898b0;
+    margin-top: 4px;
+  }
+
+  /* ===== COUNTDOWN ===== */
+  .countdown-wrap {
+    margin-top: 64px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+  }
+  .countdown-wrap.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .countdown-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.45em;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #c8a8be;
+    margin-bottom: 28px;
+  }
+  .countdown-boxes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .count-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+  }
+  .count-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 38px;
+    color: #7a5870;
+    line-height: 1;
+  }
+  .count-unit {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 8px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #c8a8be;
+    margin-top: 4px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-section {
+    padding: 60px 30px 80px;
+    text-align: center;
+  }
+  .footer-msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    color: #b898b0;
+    letter-spacing: 0.05em;
+    max-width: 300px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+  .footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: rgba(180, 140, 100, 0.6);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 480px) {
+    .envelope-wrap { width: 280px; height: 190px; }
+    .env-flap {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-top: 86px solid rgba(241, 228, 245, 0.95);
     }
-
-    .names {
-        font-size:20px;
+    .env-bottom {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
     }
-
-    .details {
-        font-size:15px;
-    }
-}
+    .env-left  { border-left: 120px solid rgba(240, 228, 242, 0.55); }
+    .env-right { border-right: 120px solid rgba(237, 224, 240, 0.55); }
+  }
 </style>
 </head>
-
 <body>
 
-<!-- 🌸 Flowers will be generated here -->
-<div id="flowers"></div>
+<!-- ===== ENVELOPE SCREEN ===== -->
+<div id="envelope-screen">
+  <div class="env-hint">Your invitation awaits</div>
 
-<!-- ✨ Sparkles -->
-<div id="sparkles"></div>
-
-<div class="envelope" onclick="openInvite()"></div>
-
-<div id="card" class="card">
-    <h1>You're Invited</h1>
-
-    <div class="names">
-        Nushera Tajrin <br> & <br> Tauhidul Islam Bhuiyan
+  <div class="envelope-wrap" onclick="openEnvelope()">
+    <div class="env-body">
+      <div class="env-liner"></div>
     </div>
-
-    <div class="details">
-        <p>With love and joy,</p>
-        <p>We invite you to celebrate our wedding</p>
-        <p><strong>May 2026 | Noon</strong></p>
-        <p>Brahmanbaria</p>
+    <div class="env-bottom"></div>
+    <div class="env-left"></div>
+    <div class="env-right"></div>
+    <div class="env-flap" id="env-flap"></div>
+    <div class="wax-seal" id="wax-seal">
+      <div class="seal-circle">
+        <div class="seal-inner">
+          <div class="seal-monogram">N&amp;T</div>
+          <div class="seal-year">2026</div>
+        </div>
+      </div>
     </div>
-
-    <div id="countdown"></div>
+  </div>
 </div>
 
+<!-- ===== MAIN INVITATION ===== -->
+<div id="invitation">
+
+  <!-- HERO: Names & Message -->
+  <section class="hero">
+    <div class="ornament">— ✦ —</div>
+    <div class="invite-label">Together with their families</div>
+
+    <div class="couple-names">
+      Nushera Tajrin
+      <span class="ampersand">&amp;</span>
+      Tauhidul Islam Bhuiyan
+    </div>
+
+    <div class="gold-divider" style="margin-top: 28px;">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line right"></div>
+    </div>
+
+    <p class="hero-message">
+      request the honour of your presence<br>
+      as they begin their forever
+    </p>
+    <div class="ornament ornament-bottom">— ✦ —</div>
+
+    <div class="scroll-cue">
+      <div class="scroll-line"></div>
+      <div class="scroll-text">Continue</div>
+    </div>
+  </section>
+
+  <!-- DETAILS: Date, Time, Venue + Countdown -->
+  <section class="details-section">
+    <div class="section-eyebrow">Wedding Details</div>
+
+    <div class="details-grid" id="details-grid">
+
+      <div class="detail-block">
+        <div class="detail-label">Date</div>
+        <div class="detail-value">May 2026</div>
+        <div class="detail-sub">A day to remember forever</div>
+      </div>
+
+      <div class="gold-divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line right"></div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Time</div>
+        <div class="detail-value">Noon</div>
+        <div class="detail-sub">Luncheon to follow</div>
+      </div>
+
+      <div class="gold-divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line right"></div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Venue</div>
+        <div class="detail-value">Brahmanbaria</div>
+        <div class="detail-sub">Bangladesh</div>
+      </div>
+
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-wrap" id="countdown-wrap">
+      <div class="countdown-label">Counting Down</div>
+      <div class="countdown-boxes">
+        <div class="count-box">
+          <div class="count-num" id="cd-days">—</div>
+          <div class="count-unit">Days</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="cd-hrs">—</div>
+          <div class="count-unit">Hours</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="cd-min">—</div>
+          <div class="count-unit">Minutes</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="cd-sec">—</div>
+          <div class="count-unit">Seconds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer-section">
+    <div class="gold-divider" style="max-width: 240px; margin: 0 auto 48px;">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line right"></div>
+    </div>
+    <p class="footer-msg">
+      With love and joy, we cannot wait<br>to celebrate with you
+    </p>
+    <div class="footer-names">Nushera &amp; Tauhidul</div>
+    <div class="ornament" style="margin-top: 24px; font-size: 14px;">✦</div>
+  </section>
+
+</div><!-- end #invitation -->
+
 <script>
-function openInvite() {
-    document.querySelector('.envelope').classList.add('open');
-    let card = document.getElementById('card');
-    card.style.display = 'block';
-    card.classList.add('fade-in');
-}
+  // ===== ENVELOPE OPEN =====
+  function openEnvelope() {
+    document.getElementById('env-flap').classList.add('open');
+    document.getElementById('wax-seal').classList.add('hide');
 
-/* ⏳ Countdown */
-var weddingDate = new Date("May 1, 2026 12:00:00").getTime();
+    setTimeout(function () {
+      var screen = document.getElementById('envelope-screen');
+      var invite = document.getElementById('invitation');
+      screen.classList.add('hide');
+      invite.classList.add('reveal');
+      setTimeout(function () {
+        screen.style.display = 'none';
+      }, 1400);
+    }, 800);
+  }
 
-setInterval(function() {
+  // ===== COUNTDOWN TIMER =====
+  var weddingDate = new Date("May 1, 2026 12:00:00").getTime();
+
+  function updateCountdown() {
     var now = new Date().getTime();
-    var distance = weddingDate - now;
+    var d = weddingDate - now;
 
-    var days = Math.floor(distance / (1000*60*60*24));
-    var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-
-    document.getElementById("countdown").innerHTML =
-    "⏳ " + days + " Days " + hours + " Hours " + minutes + " Minutes";
-
-    if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💍 It's Wedding Time!";
+    if (d < 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hrs').textContent  = '0';
+      document.getElementById('cd-min').textContent  = '0';
+      document.getElementById('cd-sec').textContent  = '0';
+      return;
     }
-}, 1000);
 
-/* 🌸 Floating flowers generator */
-const flowerSymbols = ["🌸","🌷","💮","🌺"];
-for(let i=0;i<25;i++){
-    let f = document.createElement("div");
-    f.className = "flower";
-    f.innerHTML = flowerSymbols[Math.floor(Math.random()*flowerSymbols.length)];
-    f.style.left = Math.random()*100 + "vw";
-    f.style.animationDuration = (5 + Math.random()*10) + "s";
-    f.style.fontSize = (16 + Math.random()*20) + "px";
-    document.body.appendChild(f);
-}
+    document.getElementById('cd-days').textContent = Math.floor(d / (1000 * 60 * 60 * 24));
+    document.getElementById('cd-hrs').textContent  = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById('cd-min').textContent  = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById('cd-sec').textContent  = Math.floor((d % (1000 * 60)) / 1000);
+  }
 
-/* ✨ Sparkles generator */
-for(let i=0;i<30;i++){
-    let s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = Math.random()*100 + "vw";
-    s.style.top = Math.random()*100 + "vh";
-    s.style.animationDuration = (1 + Math.random()*2) + "s";
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ===== SCROLL REVEAL (Intersection Observer) =====
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) entry.target.classList.add('in-view');
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(document.getElementById('details-grid'));
+  observer.observe(document.getElementById('countdown-wrap'));
+
+  // ===== FLOATING PETALS =====
+  var petalSymbols = ["✿", "❀", "✾", "❁"];
+
+  for (var i = 0; i < 10; i++) {
+    var p = document.createElement('div');
+    p.className = 'petal';
+    p.innerHTML = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+    p.style.left             = Math.random() * 100 + 'vw';
+    p.style.fontSize         = (10 + Math.random() * 8) + 'px';
+    p.style.color            = Math.random() > 0.5
+      ? 'rgba(180,140,160,0.35)'
+      : 'rgba(210,175,120,0.35)';
+    p.style.animationDuration = (18 + Math.random() * 22) + 's';
+    p.style.animationDelay   = (Math.random() * 20) + 's';
+    document.body.appendChild(p);
+  }
+
+  // ===== SPARKLES =====
+  for (var j = 0; j < 18; j++) {
+    var s = document.createElement('div');
+    s.className = 'spark';
+    s.style.left              = Math.random() * 100 + 'vw';
+    s.style.top               = Math.random() * 100 + 'vh';
+    s.style.animationDuration = (2 + Math.random() * 3) + 's';
+    s.style.animationDelay    = (Math.random() * 4) + 's';
     document.body.appendChild(s);
-}
+  }
 </script>
 
 </body>
