@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Wedding Invitation — Tauhidul & Nushera</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Jost:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -43,150 +43,143 @@ body {
   font-size: clamp(13px, 3.5vw, 16px);
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #4a5c4e;
+  color: #c7d5c4;
   text-align: center;
   z-index: 10;
-  text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* ===== TEXTURED PINTEREST-INSPIRED ENVELOPE ===== */
+/* ===== ELEGANT DARK EMERALD ENVELOPE ===== */
 .envelope-wrap {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #0f2b1c; /* Base Premium Deep Emerald */
+  background: #0b2418; /* Deep emerald base */
   overflow: hidden;
-  box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
-  perspective: 1500px;
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.7);
+  perspective: 1600px;
 }
 
-/* Realistic Matte Fine-Paper Micrograin */
+/* Fine paper grain texture */
 .env-grain {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.05'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 5;
 }
 
-/* Cinematic lighting sheens */
+/* Cinematic emerald light reflection */
 .env-ambient-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 45%, rgba(255, 246, 214, 0.08) 0%, transparent 65%);
+  background: radial-gradient(circle at 45% 40%, rgba(200, 230, 190, 0.1) 0%, rgba(30, 60, 40, 0.5) 90%);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Luxury 3D Overlapping Folds */
-.fold-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* Luxury V-Flap from Pinterest Inspiration */
+/* Top flap (V-shape) realistic fold */
 .env-flap {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 48%;
-  background: #123321;
+  background: #0f2c1d;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
   transition: transform 1.6s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   z-index: 4;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.5);
 }
 .env-flap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(0,0,0,0.18));
+  background: linear-gradient(135deg, rgba(220,245,200,0.05) 0%, rgba(0,0,0,0.2) 100%);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 .env-flap.open {
-  transform: rotateX(160deg);
+  transform: rotateX(165deg);
   z-index: 1;
 }
 
-/* Left & Right Diagonal Side Paper Cuts */
+/* Side folds (3D depth) */
 .env-side-left {
   position: absolute;
   inset: 0;
-  background: #0d2619;
+  background: #0a2114;
   clip-path: polygon(0 0, 52% 50%, 0 100%);
   z-index: 2;
-  box-shadow: 5px 0 15px rgba(0,0,0,0.15);
+  box-shadow: 8px 0 20px rgba(0,0,0,0.25);
 }
 .env-side-right {
   position: absolute;
   inset: 0;
-  background: #0d2619;
+  background: #0a2114;
   clip-path: polygon(100% 0, 100% 100%, 48% 50%);
   z-index: 2;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+  box-shadow: -8px 0 20px rgba(0,0,0,0.25);
 }
 
-/* Bottom Pocket Fold */
+/* Bottom pocket layer */
 .env-bottom-pocket {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 55%;
-  background: #102f1e;
-  clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 82%, 0 0);
+  background: #0e2a1a;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 78%, 0 0);
   z-index: 3;
-  box-shadow: 0 -10px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 -12px 30px rgba(0,0,0,0.3);
 }
 
-/* ===== REALISTIC WAX SEAL ===== */
+/* ===== ANTIQUE GOLD WAX SEAL (T & N) ===== */
 .wax-seal {
   position: absolute;
   top: 46%; left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(84px, 20vw, 105px); 
-  height: clamp(84px, 20vw, 105px);
+  width: clamp(88px, 20vw, 110px); 
+  height: clamp(88px, 20vw, 110px);
   z-index: 6; cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
 }
-.wax-seal:hover { transform: translate(-50%, -50%) scale(1.08); }
+.wax-seal:hover { transform: translate(-50%, -50%) scale(1.05); }
 .wax-seal.hide {
-  opacity: 0; transform: translate(-50%, -50%) scale(0.3); pointer-events: none;
+  opacity: 0; transform: translate(-50%, -50%) scale(0.2); pointer-events: none;
 }
 
 .seal-disc {
   width: 100%; height: 100%; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ebd08c 0%, #cfa756 30%, #ab8233 65%, #7a581a 95%);
+  background: radial-gradient(circle at 32% 28%, #f5e5b3 0%, #ddb865 35%, #b8862c 70%, #8a5f1a 100%);
   display: flex; align-items: center; justify-content: center;
   position: relative;
   box-shadow:
-    inset 0 4px 6px rgba(255, 245, 200, 0.5),
-    inset 0 -6px 14px rgba(0,0,0,0.35),
-    0 10px 30px rgba(0,0,0,0.5),
-    0 4px 10px rgba(0,0,0,0.35);
+    inset 0 3px 8px rgba(255, 250, 210, 0.7),
+    inset 0 -6px 12px rgba(0,0,0,0.4),
+    0 12px 28px rgba(0,0,0,0.6),
+    0 3px 8px rgba(0,0,0,0.3);
 }
 
-/* Organic irregular molten wax edge look */
+/* Irregular wax edge */
 .seal-disc::before {
   content: '';
-  position: absolute; inset: -4px -2px -3px -5px;
-  border-radius: 48% 52% 51% 49% / 53% 48% 52% 47%;
-  background: inherit;
+  position: absolute; inset: -5px -3px -5px -4px;
+  border-radius: 52% 48% 50% 50% / 49% 51% 49% 51%;
+  background: radial-gradient(circle at 40% 35%, #f3e0a5, #bb872b);
   z-index: -1;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  filter: blur(0.8px);
 }
 
 .seal-outer-ring {
   position: absolute; inset: 7px; border-radius: 50%;
-  border: 1.8px solid rgba(240, 210, 130, 0.45);
+  border: 1.6px solid rgba(230, 200, 120, 0.6);
 }
 .seal-inner-ring {
   position: absolute; inset: 15px; border-radius: 50%;
-  border: 1px dashed rgba(230, 200, 110, 0.35);
+  border: 1px dashed rgba(210, 180, 85, 0.5);
 }
 
 .seal-content {
@@ -195,153 +188,152 @@ body {
 }
 .seal-monogram {
   font-family: 'Great Vibes', cursive;
-  color: #fff9e6;
-  font-size: clamp(22px, 5.2vw, 28px); line-height: 1;
-  text-shadow: -1px -1px 1px rgba(0,0,0,0.4), 1px 1px 1px rgba(255,255,255,0.4);
+  color: #fff9ea;
+  font-size: clamp(24px, 5.5vw, 30px); 
+  line-height: 1;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(255,240,170,0.6);
+  letter-spacing: 1px;
 }
 .seal-year {
-  font-family: 'Jost', sans-serif; font-size: clamp(7px, 1.5vw, 9px); font-weight: 300;
-  letter-spacing: 0.22em; color: rgba(255, 242, 200, 0.8); margin-top: 2px;
+  font-family: 'Jost', sans-serif; font-size: clamp(7px, 1.6vw, 9px); font-weight: 400;
+  letter-spacing: 0.22em; color: rgba(255, 245, 200, 0.9); margin-top: 2px;
 }
 
+/* Pulse ring animation for realism */
 .seal-pulse-ring {
-  position: absolute; inset: -12px; border-radius: 50%;
-  border: 1.5px solid rgba(225, 185, 95, 0.45);
-  animation: pulseRing 2.5s ease-out infinite;
+  position: absolute; inset: -14px; border-radius: 50%;
+  border: 1.2px solid rgba(210, 175, 80, 0.5);
+  animation: pulseRing 2.2s ease-out infinite;
 }
 @keyframes pulseRing {
-  0%   { transform: scale(0.95); opacity: 0.8; }
-  60%  { transform: scale(1.22); opacity: 0; }
-  100% { transform: scale(1.22); opacity: 0; }
+  0%   { transform: scale(0.92); opacity: 0.6; }
+  70%  { transform: scale(1.28); opacity: 0; }
+  100% { transform: scale(1.28); opacity: 0; }
 }
 
 .seal-hint {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
-  color: #5a7060;
+  color: #cbdfc6;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   animation: hintPulse 2.5s ease-in-out infinite; text-align: center;
   z-index: 10;
 }
 .seal-hint.hide { opacity: 0; }
-@keyframes hintPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.95; } }
+@keyframes hintPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
-/* ===== SPARKLES ===== */
-.spark {
-  position: fixed; width: 2px; height: 2px; border-radius: 50%;
-  pointer-events: none; z-index: 0;
-  background: rgba(120, 180, 140, 0.4);
-  animation: sparkPulse ease-in-out infinite;
-}
-@keyframes sparkPulse { 0%,100% { transform: scale(0.3); opacity: 0.05; } 50% { transform: scale(1.6); opacity: 0.5; } }
-
-/* ===== INVITATION CONTENT INTERFACE ===== */
+/* ===== INVITATION PAGE (VINTAGE FLORAL/BOTANICAL) ===== */
 #invitation {
   opacity: 0; transform: translateY(40px);
-  transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s, transform 2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
+  transition: opacity 1.9s cubic-bezier(0.25, 1, 0.5, 1) 0.6s, transform 1.9s cubic-bezier(0.25, 1, 0.5, 1) 0.6s;
   pointer-events: none;
 }
 #invitation.reveal { opacity: 1; transform: translateY(0); pointer-events: all; }
 
-/* ===== HERO PAGE ===== */
+/* Vintage Floral / Botanical Background + delicate ornaments */
 .hero {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(170deg, #faf8f3 0%, #f3eee3 50%, #eae4d5 100%);
+  background: linear-gradient(145deg, #fdfaf2 0%, #f7f0e2 50%, #ede6d5 100%);
   padding: 40px 16px;
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Elegant botanical corners (reference card.jpg style) */
 .floral-corner {
-  position: absolute; width: clamp(100px, 30vw, 180px); height: clamp(100px, 30vw, 180px);
-  opacity: 0.25; pointer-events: none;
+  position: absolute;
+  width: clamp(130px, 28vw, 200px);
+  height: clamp(130px, 28vw, 200px);
+  opacity: 0.32;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-.floral-corner.tl { top: 0; left: 0; }
-.floral-corner.tr { top: 0; right: 0; transform: scaleX(-1); }
-.floral-corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
-.floral-corner.br { bottom: 0; right: 0; transform: scale(-1); }
+.floral-corner.tl {
+  top: 0; left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath fill='none' stroke='%234b6e4a' stroke-width='1' d='M25 160 L70 115 L110 70 L150 30' /%3E%3Cpath fill='none' stroke='%235f7e5a' stroke-width='0.8' d='M30 140 L65 108 L95 72 L130 38' /%3E%3Ccircle cx='78' cy='68' r='6' fill='rgba(100,120,80,0.1)' stroke='%233b5c42' stroke-width='0.6' /%3E%3Cpath d='M68 58 L88 58 L78 45 Z' fill='rgba(90,130,80,0.12)' stroke='%234b6e3e' stroke-width='0.5' /%3E%3C/svg%3E");
+}
+.floral-corner.tr {
+  top: 0; right: 0; transform: scaleX(-1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath fill='none' stroke='%234b6e4a' stroke-width='1' d='M25 160 L70 115 L110 70 L150 30' /%3E%3Cpath fill='none' stroke='%235f7e5a' stroke-width='0.8' d='M30 140 L65 108 L95 72 L130 38' /%3E%3Ccircle cx='78' cy='68' r='6' fill='rgba(100,120,80,0.1)' stroke='%233b5c42' stroke-width='0.6' /%3E%3Cpath d='M68 58 L88 58 L78 45 Z' fill='rgba(90,130,80,0.12)' stroke='%234b6e3e' stroke-width='0.5' /%3E%3C/svg%3E");
+}
+.floral-corner.bl {
+  bottom: 0; left: 0; transform: scaleY(-1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath fill='none' stroke='%234b6e4a' stroke-width='1' d='M25 160 L70 115 L110 70 L150 30' /%3E%3Cpath fill='none' stroke='%235f7e5a' stroke-width='0.8' d='M30 140 L65 108 L95 72 L130 38' /%3E%3Ccircle cx='78' cy='68' r='6' fill='rgba(100,120,80,0.1)' stroke='%233b5c42' stroke-width='0.6' /%3E%3Cpath d='M68 58 L88 58 L78 45 Z' fill='rgba(90,130,80,0.12)' stroke='%234b6e3e' stroke-width='0.5' /%3E%3C/svg%3E");
+}
+.floral-corner.br {
+  bottom: 0; right: 0; transform: scale(-1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath fill='none' stroke='%234b6e4a' stroke-width='1' d='M25 160 L70 115 L110 70 L150 30' /%3E%3Cpath fill='none' stroke='%235f7e5a' stroke-width='0.8' d='M30 140 L65 108 L95 72 L130 38' /%3E%3Ccircle cx='78' cy='68' r='6' fill='rgba(100,120,80,0.1)' stroke='%233b5c42' stroke-width='0.6' /%3E%3Cpath d='M68 58 L88 58 L78 45 Z' fill='rgba(90,130,80,0.12)' stroke='%234b6e3e' stroke-width='0.5' /%3E%3C/svg%3E");
+}
 
-/* Luxury Responsive Card Layout */
+/* Invitation card minimal & elegant */
 .invite-card {
   position: relative; z-index: 2;
-  background: rgba(255, 254, 252, 0.97);
-  border: 1px solid rgba(140, 175, 150, 0.25);
-  border-radius: 4px;
-  padding: clamp(45px, 10vh, 75px) clamp(20px, 6vw, 60px);
-  max-width: 460px; width: 100%;
+  background: rgba(255, 254, 250, 0.96);
+  border: 1px solid rgba(100, 130, 95, 0.3);
+  border-radius: 2px;
+  padding: clamp(42px, 10vh, 72px) clamp(20px, 6vw, 55px);
+  max-width: 480px; width: 100%;
   text-align: center;
-  box-shadow:
-    0 15px 45px rgba(40, 60, 45, 0.08),
-    0 4px 15px rgba(0,0,0,0.03),
-    inset 0 0 0 10px rgba(140,175,150,0.08);
+  box-shadow: 0 20px 45px rgba(40, 55, 35, 0.08), 0 2px 12px rgba(0,0,0,0.02), inset 0 0 0 8px rgba(130,160,115,0.05);
 }
 
 .card-eyebrow {
   font-family: 'Jost', sans-serif; font-weight: 300;
-  letter-spacing: 0.4em; font-size: clamp(9px, 2.5vw, 11px); text-transform: uppercase;
-  color: #6b8a6f; margin-bottom: 20px;
+  letter-spacing: 0.45em; font-size: clamp(9px, 2.5vw, 11px); text-transform: uppercase;
+  color: #6f8f72; margin-bottom: 20px;
 }
-
-.card-ornament {
-  display: flex; align-items: center; gap: 10px;
-  margin: 0 auto 24px; max-width: 200px;
-}
-.orn-line {
-  flex: 1; height: 0.5px;
-  background: linear-gradient(90deg, transparent, rgba(100,155,115,0.4));
-}
-.orn-line.r { background: linear-gradient(90deg, rgba(100,155,115,0.4), transparent); }
-.orn-diamond { width: 4px; height: 4px; background: rgba(100,155,115,0.45); transform: rotate(45deg); flex-shrink: 0; }
 
 .couple-names {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(38px, 10vw, 62px);
-  color: #1e3b26; line-height: 1.15;
+  font-size: clamp(40px, 10vw, 68px);
+  color: #1e3b26; line-height: 1.1;
 }
 .name-amp {
   display: block; font-family: 'Cormorant Garamond', serif;
   font-style: italic; font-weight: 300;
   font-size: clamp(22px, 6vw, 32px);
-  color: rgba(90, 145, 105, 0.7); margin: 4px 0;
+  color: rgba(85, 140, 95, 0.7); margin: 4px 0;
 }
 
 .card-message {
   font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-  font-size: clamp(16px, 4vw, 19px);
-  color: #4a5e50; max-width: 320px; margin: 24px auto 0;
-  line-height: 1.8; letter-spacing: 0.02em;
+  font-size: clamp(15px, 4vw, 18px);
+  color: #4a5e50; max-width: 340px; margin: 24px auto 0;
+  line-height: 1.7; letter-spacing: 0.02em;
 }
 
+/* tiny scroll sign */
 .scroll-cue {
   margin-top: 40px;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
 .cue-line {
-  width: 1px; height: 32px;
-  background: linear-gradient(to bottom, transparent, rgba(100,155,115,0.5), transparent);
+  width: 1px; height: 28px;
+  background: linear-gradient(to bottom, transparent, rgba(100,155,115,0.6), transparent);
   animation: cueMove 2s ease-in-out infinite;
 }
-@keyframes cueMove { 0%,100% { transform: scaleY(0.6); opacity: 0.3; } 50% { transform: scaleY(1.1); opacity: 1; } }
+@keyframes cueMove { 0%,100% { transform: scaleY(0.7); opacity: 0.4; } 50% { transform: scaleY(1.2); opacity: 1; } }
 .cue-text {
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 8px; letter-spacing: 0.4em; text-transform: uppercase;
-  color: rgba(90,140,105,0.7);
+  color: rgba(90,140,105,0.8);
 }
 
-/* ===== DETAILS SECTION ===== */
+/* Details, Map, Countdown Keep existing but update date etc */
 .details-section {
-  background: linear-gradient(180deg, #eae4d5 0%, #f5f0e4 100%);
+  background: linear-gradient(180deg, #ede6d5 0%, #f7f2e6 100%);
   padding: 80px 20px;
   display: flex; flex-direction: column; align-items: center;
 }
-
 .section-label {
   font-family: 'Jost', sans-serif; font-weight: 300;
   letter-spacing: 0.45em; font-size: clamp(9px, 2.5vw, 11px); text-transform: uppercase;
   color: #709174; margin-bottom: 50px;
 }
-
 .details-grid {
   display: grid; grid-template-columns: 1fr;
   gap: 40px; max-width: 360px; width: 100%;
@@ -349,158 +341,97 @@ body {
   transition: opacity 1s ease, transform 1s ease;
 }
 .details-grid.in-view { opacity: 1; transform: translateY(0); }
-
 .detail-block { text-align: center; padding: 10px 0; }
-.d-label {
-  font-family: 'Jost', sans-serif; font-weight: 400;
-  letter-spacing: 0.4em; font-size: 9px; text-transform: uppercase;
-  color: rgba(80, 130, 90, 0.85); margin-bottom: 12px;
-}
-.d-value {
-  font-family: 'Cormorant Garamond', serif; font-weight: 400; font-style: italic;
-  font-size: clamp(25px, 6.5vw, 32px); color: #203324; line-height: 1.2;
-}
-.d-sub {
-  font-family: 'Jost', sans-serif; font-weight: 300;
-  font-size: 11.5px; letter-spacing: 0.15em;
-  color: #6e8a71; margin-top: 6px;
-}
-
+.d-label { font-family: 'Jost', sans-serif; font-weight: 400; letter-spacing: 0.4em; font-size: 9px; text-transform: uppercase; color: rgba(80, 130, 90, 0.85); margin-bottom: 12px; }
+.d-value { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-style: italic; font-size: clamp(26px, 6.5vw, 34px); color: #203324; line-height: 1.2; }
+.d-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11.5px; letter-spacing: 0.15em; color: #6e8a71; margin-top: 6px; }
 .g-divider { display: flex; align-items: center; gap: 12px; max-width: 200px; margin: 0 auto; width: 100%; }
 .g-line { flex: 1; height: 0.5px; background: linear-gradient(90deg, transparent, rgba(100,155,115,0.35)); }
 .g-line.r { background: linear-gradient(90deg, rgba(100,155,115,0.35), transparent); }
-.g-diamond { width: 4px; height: 4px; background: rgba(100,155,115,0.4); transform: rotate(45deg); flex-shrink: 0; }
+.g-diamond { width: 4px; height: 4px; background: rgba(100,155,115,0.4); transform: rotate(45deg); }
 
-/* ===== MAP SECTION ===== */
-.map-section { background: #f5f0e4; padding: 10px 20px 70px; display: flex; flex-direction: column; align-items: center; }
-.map-wrap { width: 100%; max-width: 440px; opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+/* Map Section (Google Maps placeholder) */
+.map-section { background: #f7f2e6; padding: 10px 20px 70px; display: flex; flex-direction: column; align-items: center; }
+.map-wrap { width: 100%; max-width: 460px; opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
 .map-wrap.in-view { opacity: 1; transform: translateY(0); }
-.map-label { font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.4em; font-size: 9px; text-transform: uppercase; color: #709174; margin-bottom: 16px; text-align: center; }
-.map-venue-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(22px, 5.5vw, 26px); color: #203324; text-align: center; margin-bottom: 4px; }
-.map-venue-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11.5px; letter-spacing: 0.15em; color: #6e8a71; text-align: center; margin-bottom: 20px; }
-.map-container { width: 100%; height: clamp(220px, 45vw, 270px); border-radius: 4px; overflow: hidden; border: 1px solid rgba(140,175,150,0.25); box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
-.map-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(145deg, #e4eae0, #d5e2d1); }
-.map-pin { width: 28px; height: 28px; background: rgba(50, 110, 70, 0.75); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-.map-pin::after { content: ''; position: absolute; width: 10px; height: 10px; background: #f5f0e4; border-radius: 50%; top: 9px; left: 9px; }
-.map-placeholder-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(50,90,60,0.65); text-align: center; line-height: 1.6; }
+.map-venue-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(22px, 5.5vw, 26px); color: #203324; text-align: center; }
+.map-container { width: 100%; height: clamp(230px, 45vw, 280px); border-radius: 8px; overflow: hidden; border: 1px solid rgba(80,120,75,0.25); margin-top: 20px; background: #e2e9dd; position: relative; }
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+.map-placeholder-text { display: none; }
 
-/* ===== COUNTDOWN ===== */
-.countdown-section { background: linear-gradient(180deg, #f5f0e4 0%, #ebe5d7 100%); padding: 70px 20px; display: flex; flex-direction: column; align-items: center; }
+/* Countdown timer */
+.countdown-section { background: linear-gradient(180deg, #f7f2e6 0%, #ede6d5 100%); padding: 70px 20px; display: flex; flex-direction: column; align-items: center; }
 .countdown-wrap { opacity: 0; transform: translateY(20px); transition: opacity 1s ease 0.1s, transform 1s ease 0.1s; }
 .countdown-wrap.in-view { opacity: 1; transform: translateY(0); }
 .cd-label { font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.4em; font-size: 9px; text-transform: uppercase; color: #709174; margin-bottom: 30px; text-align: center; }
-.cd-boxes { display: flex; gap: clamp(16px, 5vw, 24px); justify-content: center; }
-.cd-box { display: flex; flex-direction: column; align-items: center; min-width: clamp(50px, 15vw, 65px); }
-.cd-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 8vw, 48px); color: #203324; line-height: 1; }
+.cd-boxes { display: flex; gap: clamp(16px, 5vw, 28px); justify-content: center; flex-wrap: wrap; }
+.cd-box { display: flex; flex-direction: column; align-items: center; min-width: clamp(55px, 16vw, 70px); }
+.cd-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(38px, 8vw, 52px); color: #203324; line-height: 1; }
 .cd-unit { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: #709174; margin-top: 4px; }
 
-/* ===== FOOTER ===== */
-.footer-section { background: #ebe5d7; padding: 60px 20px 80px; text-align: center; }
-.footer-msg { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(16px, 4.5vw, 18px); color: #4a5e50; max-width: 280px; margin: 0 auto 30px; line-height: 1.8; letter-spacing: 0.03em; }
-.footer-names { font-family: 'Great Vibes', cursive; font-size: clamp(34px, 8vw, 44px); color: rgba(50,95,60,0.7); }
-.footer-star { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: rgba(100,155,115,0.4); letter-spacing: 0.4em; margin-top: 20px; }
+.footer-section { background: #ede6d5; padding: 60px 20px 80px; text-align: center; }
+.footer-msg { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(16px, 4.5vw, 18px); color: #4a5e50; max-width: 280px; margin: 0 auto 30px; line-height: 1.8; }
+.footer-names { font-family: 'Great Vibes', cursive; font-size: clamp(34px, 8vw, 44px); color: rgba(55, 100, 65, 0.75); }
 
-/* ===== FLOATING PETALS ===== */
+/* floating petals / botanicals */
 .petal { position: fixed; top: -40px; pointer-events: none; z-index: 0; opacity: 0; animation: petalFall linear infinite; }
-@keyframes petalFall {
-  0%   { opacity: 0; transform: translateY(0) rotate(0deg) translateX(0); }
-  10%  { opacity: 0.25; }
-  90%  { opacity: 0.15; }
-  100% { opacity: 0; transform: translateY(105vh) rotate(420deg) translateX(25px); }
+@keyframes petalFall { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 10% { opacity: 0.25; } 90% { opacity: 0.15; } 100% { opacity: 0; transform: translateY(105vh) rotate(400deg); } }
+.spark { position: fixed; width: 2px; height: 2px; border-radius: 50%; pointer-events: none; z-index: 0; background: rgba(140, 200, 140, 0.4); animation: sparkPulse ease-in-out infinite; }
+@keyframes sparkPulse { 0%,100% { transform: scale(0.3); opacity: 0.05; } 50% { transform: scale(1.6); opacity: 0.4; } }
+
+/* mobile responsiveness touch */
+@media (max-width: 550px) {
+  .invite-card { padding: 35px 24px; }
+  .env-flap { height: 45%; }
 }
 </style>
 </head>
 <body>
 
 <div id="envelope-screen">
-  <div class="env-hint">Your invitation awaits</div>
-
+  <div class="env-hint">A Love Story Unfolds</div>
   <div class="envelope-wrap" id="envelope-wrap">
     <div class="env-grain"></div>
     <div class="env-ambient-glow"></div>
-    
     <div class="fold-layer env-flap" id="env-flap"></div>
     <div class="fold-layer env-side-left"></div>
     <div class="fold-layer env-side-right"></div>
     <div class="fold-layer env-bottom-pocket"></div>
-
     <div class="wax-seal" id="wax-seal" onclick="openEnvelope()">
       <div class="seal-pulse-ring"></div>
       <div class="seal-disc">
         <div class="seal-outer-ring"></div>
         <div class="seal-inner-ring"></div>
         <div class="seal-content">
-          <div class="seal-monogram">N&T</div>
+          <div class="seal-monogram">T & N</div>
           <div class="seal-year">2026</div>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="seal-hint" id="seal-hint">Press seal to open</div>
+  <div class="seal-hint" id="seal-hint">press the seal ✦</div>
 </div>
 
 <div id="invitation">
-
   <section class="hero">
-    <svg class="floral-corner tl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#3b5c42" stroke-width="0.75" fill="none" opacity="0.85">
-        <path d="M10 170 Q30 120 80 80 Q120 50 165 15"/>
-        <path d="M10 140 Q40 110 70 85 Q100 60 130 30"/>
-        <path d="M50 170 Q70 140 90 110 Q110 85 135 55"/>
-        <ellipse cx="85" cy="78" rx="10" ry="5" transform="rotate(-40 85 78)" fill="rgba(74,122,85,0.1)" stroke="#3b5c42" stroke-width="0.5"/>
-        <circle cx="78" cy="72" r="2.5" fill="rgba(74,122,85,0.15)"/>
-      </g>
-    </svg>
-    <svg class="floral-corner tr" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#3b5c42" stroke-width="0.75" fill="none" opacity="0.85">
-        <path d="M10 170 Q30 120 80 80 Q120 50 165 15"/>
-        <path d="M10 140 Q40 110 70 85 Q100 60 130 30"/>
-        <ellipse cx="85" cy="78" rx="10" ry="5" transform="rotate(-40 85 78)" fill="rgba(74,122,85,0.1)" stroke="#3b5c42" stroke-width="0.5"/>
-      </g>
-    </svg>
-    <svg class="floral-corner bl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#3b5c42" stroke-width="0.75" fill="none" opacity="0.85">
-        <path d="M10 170 Q30 120 80 80 Q120 50 165 15"/>
-        <ellipse cx="85" cy="78" rx="10" ry="5" transform="rotate(-40 85 78)" fill="rgba(74,122,85,0.1)" stroke="#3b5c42" stroke-width="0.5"/>
-      </g>
-    </svg>
-    <svg class="floral-corner br" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#3b5c42" stroke-width="0.75" fill="none" opacity="0.85">
-        <path d="M10 170 Q30 120 80 80 Q120 50 165 15"/>
-        <ellipse cx="85" cy="78" rx="10" ry="5" transform="rotate(-40 85 78)" fill="rgba(74,122,85,0.1)" stroke="#3b5c42" stroke-width="0.5"/>
-      </g>
-    </svg>
-
+    <div class="floral-corner tl"></div>
+    <div class="floral-corner tr"></div>
+    <div class="floral-corner bl"></div>
+    <div class="floral-corner br"></div>
     <div class="invite-card">
       <div class="card-eyebrow">Together with their families</div>
-
-      <div class="card-ornament">
-        <div class="orn-line"></div>
-        <div class="orn-diamond"></div>
-        <div class="orn-line r"></div>
-      </div>
-
       <div class="couple-names">
-        Tauhidul Islam Bhuyian
+        Tauhidul Islam
         <span class="name-amp">&</span>
         Nushera Tajrin
       </div>
-
-      <div class="card-ornament" style="margin-top:24px; margin-bottom:0;">
-        <div class="orn-line"></div>
-        <div class="orn-diamond"></div>
-        <div class="orn-line r"></div>
-      </div>
-
       <p class="card-message">
         request the honour of your presence<br>
         as they begin their forever
       </p>
-
       <div class="scroll-cue">
         <div class="cue-line"></div>
-        <div class="cue-text">View Details</div>
+        <div class="cue-text">Scroll</div>
       </div>
     </div>
   </section>
@@ -508,56 +439,28 @@ body {
   <section class="details-section">
     <div class="section-label">Wedding Details</div>
     <div class="details-grid" id="details-grid">
-
-      <div class="detail-block">
-        <div class="d-label">Date</div>
-        <div class="d-value">30th May, 2026</div>
-        <div class="d-sub">Friday</div>
-      </div>
-
-      <div class="g-divider">
-        <div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div>
-      </div>
-
-      <div class="detail-block">
-        <div class="d-label">Time</div>
-        <div class="d-value">Noon</div>
-        <div class="d-sub">Luncheon reception to follow</div>
-      </div>
-
-      <div class="g-divider">
-        <div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div>
-      </div>
-
-      <div class="detail-block">
-        <div class="d-label">Venue</div>
-        <div class="d-value">Brahmanbaria</div>
-        <div class="d-sub">Bangladesh</div>
-      </div>
-
+      <div class="detail-block"><div class="d-label">Date</div><div class="d-value">22nd June, 2026</div><div class="d-sub">Sunday</div></div>
+      <div class="g-divider"><div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div></div>
+      <div class="detail-block"><div class="d-label">Time</div><div class="d-value">Three o'clock</div><div class="d-sub">Afternoon reception</div></div>
+      <div class="g-divider"><div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div></div>
+      <div class="detail-block"><div class="d-label">Venue</div><div class="d-value">123ANYWHERE ST.</div><div class="d-sub">ANYCITY (Brahmanbaria)</div></div>
     </div>
   </section>
 
+  <!-- Google Maps Placeholder with actual embed link (responsive) -->
   <section class="map-section">
     <div class="map-wrap" id="map-wrap">
-      <div class="map-label">Find Us Here</div>
-      <div class="map-venue-name">Brahmanbaria</div>
-      <div class="map-venue-sub">Bangladesh</div>
+      <div class="map-venue-name">Venue Location</div>
       <div class="map-container">
-        <div class="map-placeholder">
-          <div class="map-pin"></div>
-          <div class="map-placeholder-text">
-            Map coming soon<br>
-            <span style="font-size:8px; opacity:0.6;">Brahmanbaria, Bangladesh</span>
-          </div>
-        </div>
+        <iframe src="https://maps.google.com/maps?q=Brahmanbaria%2C%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
       </div>
+      <div style="font-family:'Jost'; font-size:10px; text-align:center; margin-top:12px; letter-spacing:0.1em; color:#6e8a71;">123ANYWHERE ST., ANYCITY</div>
     </div>
   </section>
 
   <section class="countdown-section">
     <div class="countdown-wrap" id="countdown-wrap">
-      <div class="cd-label">Counting Down to the Big Day</div>
+      <div class="cd-label">Counting Down to 22nd June 2026</div>
       <div class="cd-boxes">
         <div class="cd-box"><div class="cd-num" id="cd-days">—</div><div class="cd-unit">Days</div></div>
         <div class="cd-box"><div class="cd-num" id="cd-hrs">—</div><div class="cd-unit">Hours</div></div>
@@ -568,25 +471,32 @@ body {
   </section>
 
   <section class="footer-section">
-    <div class="g-divider" style="max-width:160px; margin:0 auto 40px;">
-      <div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div>
-    </div>
-    <p class="footer-msg">
-      With love and joy, we cannot wait<br>to celebrate with you
-    </p>
+    <p class="footer-msg">With love and joy, we cannot wait<br>to celebrate with you</p>
     <div class="footer-names">Nushera & Tauhidul</div>
-    <div class="footer-star">✦</div>
   </section>
-
 </div>
 
 <script>
-/* ===== OPEN ENVELOPE MECHANICS ===== */
+// Envelope opening animation + auto-play background music (muted on load due to browser policies, with user gesture we can unmute)
+let audioCtx = null;
+function playAmbientMusic() {
+  if (!audioCtx) {
+    audioCtx = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+    audioCtx.loop = true;
+    audioCtx.volume = 0.28;
+    audioCtx.muted = true; // muted by default for autoplay policy
+    audioCtx.play().then(() => { setTimeout(() => { if(audioCtx) audioCtx.muted = false; }, 300); }).catch(e => console.log("audio user interaction needed"));
+  } else if (audioCtx.paused) {
+    audioCtx.play().catch(()=>{});
+  }
+}
 function openEnvelope() {
   document.getElementById('seal-hint').classList.add('hide');
   document.getElementById('wax-seal').classList.add('hide');
   document.getElementById('env-flap').classList.add('open');
-  
+  // trigger ambient music on first user interaction (opening envelope)
+  playAmbientMusic();
+
   setTimeout(function () {
     var sc  = document.getElementById('envelope-screen');
     var inv = document.getElementById('invitation');
@@ -596,10 +506,11 @@ function openEnvelope() {
   }, 1000);
 }
 
-/* ===== COUNTDOWN ENGINE ===== */
-var weddingDate = new Date("May 30, 2026 12:00:00").getTime();
+// Updated wedding date: 22nd June 2026 (set to 00:00:00 for countdown)
+var weddingDate = new Date("June 22, 2026 15:00:00").getTime(); // 3PM
 function updateCountdown() {
-  var distance = weddingDate - Date.now();
+  var now = Date.now();
+  var distance = weddingDate - now;
   if (distance < 0) {
     ['cd-days','cd-hrs','cd-min','cd-sec'].forEach(function(id){
       document.getElementById(id).textContent = '0';
@@ -614,40 +525,53 @@ function updateCountdown() {
 updateCountdown(); 
 setInterval(updateCountdown, 1000);
 
-/* ===== SCROLL SURFACING PERFORMANCE ===== */
+// Intersection observer for fade-in elements
 var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) { 
-    if (entry.isIntersecting) entry.target.classList.add('in-view'); 
-  });
-}, { threshold: 0.1 });
+  entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+}, { threshold: 0.15 });
 
 ['details-grid','map-wrap','countdown-wrap'].forEach(function(id) {
   var el = document.getElementById(id);
   if (el) observer.observe(el);
 });
 
-/* ===== FLOATING MINIMAL BOTANICAL PETALS ===== */
-var petalSymbols = ["✿","❀","✾","❁"];
-for (var i = 0; i < 6; i++) {
+// Tiny right side scroll sign (static but additional small UX)
+let scrollHint = document.createElement('div');
+scrollHint.innerHTML = '⤸';
+scrollHint.style.position = 'fixed';
+scrollHint.style.bottom = '20px';
+scrollHint.style.right = '12px';
+scrollHint.style.fontSize = '26px';
+scrollHint.style.opacity = '0.35';
+scrollHint.style.fontWeight = '100';
+scrollHint.style.color = '#6b8a6f';
+scrollHint.style.zIndex = '99';
+scrollHint.style.fontFamily = 'serif';
+scrollHint.style.transform = 'rotate(90deg)';
+scrollHint.style.letterSpacing = '2px';
+scrollHint.style.pointerEvents = 'none';
+document.body.appendChild(scrollHint);
+setTimeout(() => { scrollHint.style.opacity = '0.2'; }, 3000);
+
+// floating petals (botanical mood)
+var petalSymbols = ["❀","✿","✾","❁"];
+for (var i = 0; i < 8; i++) {
   var petal = document.createElement('div');
   petal.className = 'petal';
   petal.innerHTML = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
   petal.style.left = Math.random() * 100 + 'vw';
-  petal.style.fontSize = (10 + Math.random() * 5) + 'px';
-  petal.style.color = 'rgba(90,145,105,0.2)';
-  petal.style.animationDuration = (20 + Math.random() * 20) + 's';
-  petal.style.animationDelay    = (Math.random() * 15) + 's';
+  petal.style.fontSize = (12 + Math.random() * 6) + 'px';
+  petal.style.color = 'rgba(95,135,85,0.25)';
+  petal.style.animationDuration = (18 + Math.random() * 22) + 's';
+  petal.style.animationDelay = (Math.random() * 14) + 's';
   document.body.appendChild(petal);
 }
-
-/* ===== LUXURY BACKGROUND AMBIENT GLOW SPARKLES ===== */
 for (var j = 0; j < 12; j++) {
   var sparkle = document.createElement('div');
   sparkle.className = 'spark';
   sparkle.style.left = Math.random() * 100 + 'vw';
   sparkle.style.top  = Math.random() * 100 + 'vh';
-  sparkle.style.animationDuration = (3 + Math.random() * 3) + 's';
-  sparkle.style.animationDelay    = (Math.random() * 4) + 's';
+  sparkle.style.animationDuration = (3 + Math.random() * 4) + 's';
   document.body.appendChild(sparkle);
 }
 </script>
