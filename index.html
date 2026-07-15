@@ -511,8 +511,8 @@ body {
 
       <div class="detail-block">
         <div class="d-label">Date</div>
-        <div class="d-value">30th May, 2026</div>
-        <div class="d-sub">Friday</div>
+        <div class="d-value">21st August, 2026</div>
+        <div class="d-sub">Thursday</div>
       </div>
 
       <div class="g-divider">
@@ -531,8 +531,8 @@ body {
 
       <div class="detail-block">
         <div class="d-label">Venue</div>
-        <div class="d-value">Brahmanbaria</div>
-        <div class="d-sub">Bangladesh</div>
+        <div class="d-value">Poura Community Centre</div>
+        <div class="d-sub">Brahmanbaria, Bangladesh</div>
       </div>
 
     </div>
@@ -540,17 +540,19 @@ body {
 
   <section class="map-section">
     <div class="map-wrap" id="map-wrap">
-      <div class="map-label">Find Us Here</div>
-      <div class="map-venue-name">Brahmanbaria</div>
-      <div class="map-venue-sub">Bangladesh</div>
+      <div class="map-label">Find the wedding venue here</div>
+      <div class="map-venue-name">Poura Community Centre</div>
+      <div class="map-venue-sub">Brahmanbaria, Bangladesh</div>
       <div class="map-container">
-        <div class="map-placeholder">
-          <div class="map-pin"></div>
-          <div class="map-placeholder-text">
-            Map coming soon<br>
-            <span style="font-size:8px; opacity:0.6;">Brahmanbaria, Bangladesh</span>
-          </div>
-        </div>
+        <iframe
+          src="https://maps.google.com/maps?q=23.978082714463095,91.10915243626177&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; vertical-align: middle;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </section>
@@ -574,7 +576,7 @@ body {
     <p class="footer-msg">
       With love and joy, we cannot wait<br>to celebrate with you
     </p>
-    <div class="footer-names">Nushera & Tauhidul</div>
+    <div class="footer-names">Tauhid & Nushera</div>
     <div class="footer-star">✦</div>
   </section>
 
@@ -597,7 +599,7 @@ function openEnvelope() {
 }
 
 /* ===== COUNTDOWN ENGINE ===== */
-var weddingDate = new Date("May 30, 2026 12:00:00").getTime();
+var weddingDate = new Date("August 21, 2026 12:00:00").getTime();
 function updateCountdown() {
   var distance = weddingDate - Date.now();
   if (distance < 0) {
