@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wedding Invitation — Tauhidul & Nushera</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Jost:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Jost:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     /* ----- RESET & ROOT VARIABLES (Curtain + Wedding) ----- */
     * {
@@ -299,6 +299,23 @@
         0 4px 15px rgba(0, 0, 0, 0.03),
         inset 0 0 0 10px rgba(140, 175, 150, 0.08);
     }
+
+    /* ----- SPIRITUAL OPENING (two-line, refined) ----- */
+    .bismillah {
+      font-family: 'Cinzel', 'Jost', serif;
+      font-weight: 400;
+      font-size: clamp(9px, 2.2vw, 11px);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #6b8a6f;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      opacity: 0.85;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .card-eyebrow {
       font-family: 'Jost', sans-serif;
       font-weight: 300;
@@ -345,17 +362,23 @@
       color: rgba(90, 145, 105, 0.7);
       margin: 4px 0;
     }
+
+    /* ----- MAIN INVITATION MESSAGE (continuous flow, no hard breaks) ----- */
     .card-message {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 300;
       font-size: clamp(16px, 4vw, 19px);
       color: #4a5e50;
-      max-width: 320px;
+      max-width: 420px;
+      width: 100%;
       margin: 24px auto 0;
       line-height: 1.8;
       letter-spacing: 0.02em;
+      padding: 0 4px;
+      word-wrap: break-word;
     }
+
     .scroll-cue {
       margin-top: 40px;
       display: flex;
@@ -473,7 +496,7 @@
       flex-shrink: 0;
     }
 
-    /* ----- MAP ----- */
+    /* ----- MAP (venue address text removed, iframe preserved) ----- */
     .map-section {
       background: #f5f0e4;
       padding: 10px 20px 70px;
@@ -501,24 +524,6 @@
       color: #709174;
       margin-bottom: 16px;
       text-align: center;
-    }
-    .map-venue-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(22px, 5.5vw, 26px);
-      color: #203324;
-      text-align: center;
-      margin-bottom: 4px;
-    }
-    .map-venue-sub {
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 11.5px;
-      letter-spacing: 0.15em;
-      color: #6e8a71;
-      text-align: center;
-      margin-bottom: 20px;
     }
     .map-container {
       width: 100%;
@@ -695,7 +700,7 @@
   <!-- ===== INVITATION CONTENT ===== -->
   <div id="invitation">
 
-    <!-- HERO -->
+    <!-- HERO (with two-line spiritual opening, continuous message) -->
     <section class="hero">
       <svg class="floral-corner tl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g stroke="#3b5c42" stroke-width="0.75" fill="none" opacity="0.85">
@@ -727,26 +732,38 @@
       </svg>
 
       <div class="invite-card">
-        <div class="card-eyebrow">Together with their families</div>
+        <!-- 1. Spiritual opening: two balanced lines -->
+        <div class="bismillah">
+          IN THE NAME OF ALMIGHTY ALLAH<br>
+          THE MOST GRACIOUS &amp; THE MOST MERCIFUL
+        </div>
+
+        <!-- 2. Family announcement -->
+        <div class="card-eyebrow">Together with our families</div>
+
         <div class="card-ornament">
           <div class="orn-line"></div>
           <div class="orn-diamond"></div>
           <div class="orn-line r"></div>
         </div>
+
         <div class="couple-names">
           Tauhidul Islam Bhuyian
           <span class="name-amp">&</span>
           Nushera Tajrin
         </div>
+
         <div class="card-ornament" style="margin-top:24px; margin-bottom:0;">
           <div class="orn-line"></div>
           <div class="orn-diamond"></div>
           <div class="orn-line r"></div>
         </div>
+
+        <!-- 3. Main invitation message: continuous flow, no hard breaks -->
         <p class="card-message">
-          request the honour of your presence<br>
-          as they begin their forever
+          cordially request your gracious presence &amp; blessings at the wedding ceremony as we begin our forever
         </p>
+
         <div class="scroll-cue">
           <div class="cue-line"></div>
           <div class="cue-text">View Details</div>
@@ -754,7 +771,7 @@
       </div>
     </section>
 
-    <!-- DETAILS (Date & Venue updated) -->
+    <!-- DETAILS (Date, Time, Venue) -->
     <section class="details-section">
       <div class="section-label">Wedding Details</div>
       <div class="details-grid" id="details-grid">
@@ -768,7 +785,7 @@
         </div>
         <div class="detail-block">
           <div class="d-label">Time</div>
-          <div class="d-value">Noon</div>
+          <div class="d-value">1:30 PM</div>
           <div class="d-sub">Luncheon reception to follow</div>
         </div>
         <div class="g-divider">
@@ -782,12 +799,10 @@
       </div>
     </section>
 
-    <!-- MAP (Embedded from Google Maps share link) -->
+    <!-- MAP (address text removed, iframe preserved) -->
     <section class="map-section">
       <div class="map-wrap" id="map-wrap">
         <div class="map-label">Find the wedding venue here</div>
-        <div class="map-venue-name">Poura Community Centre</div>
-        <div class="map-venue-sub">Brahmanbaria, Bangladesh</div>
         <div class="map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.172406497507!2d91.1091701!3d23.9781293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375405bc66beadcd%3A0xa59202abad99bd2c!2sPoura%20Community%20Centre!5e1!3m2!1sen!2sbd!4v1742150000000!5m2!1sen!2sbd"
@@ -815,7 +830,7 @@
       </div>
     </section>
 
-    <!-- FOOTER (updated names) -->
+    <!-- FOOTER (unchanged) -->
     <section class="footer-section">
       <div class="g-divider" style="max-width:160px; margin:0 auto 40px;">
         <div class="g-line"></div><div class="g-diamond"></div><div class="g-line r"></div>
